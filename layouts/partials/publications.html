@@ -1,0 +1,25 @@
+<div class="flex my-4 md:flex-row flex-col">
+  <div id="date-pub" class="min-w-[161px] invisible md:visible"></div>
+  <div id="info-pub" class="flex flex-col grow">
+    <div class="font-bold underline decoration-double mb-2">Publications</div>
+    <div class="flex flex-col space-y-2">
+      {{ with .Site.GetPage "/publications" }} {{ range (sort .Data.Pages "Date"
+      "desc" (where .Pages ".Params.private" "!=" true))}}
+      <div class="flex space-x-2">
+        <span>#</span>
+        <div class="flex flex-col">
+          <a class="font-semibold" href="{{ .Permalink }}" title="{{ .Title }}"
+            >{{ .Title }}</a
+          >
+          <span class="text-gray-700 dark:text-neutral-400"
+            >{{ .Params.authors }}</span
+          >
+          <span class="text-gray-700 italic dark:text-neutral-400"
+            >{{ .Params.publication }}, {{ .Params.year }}</span
+          >
+        </div>
+      </div>
+      {{ end }} {{ end }}
+    </div>
+  </div>
+</div>

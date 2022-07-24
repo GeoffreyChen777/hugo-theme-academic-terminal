@@ -1,0 +1,13 @@
+<div class="flex my-4 md:flex-row flex-col">
+  <div id="date-edu" class="min-w-[161px] invisible md:visible"></div>
+  <div id="info-edu" class="flex flex-col grow">
+    <div class="font-bold underline decoration-double mb-2">Education</div>
+    <div class="flex space-x-8">
+      <div class="grid grid-cols-4 gap-2">
+        {{ range .Site.Params.Education.Item }} <span>{{ .degree }} </span>
+        <span>{{ .period }} </span>
+        <span class="col-span-2">{{ .description }} </span>{{ end }}
+      </div>
+    </div>
+  </div>
+</div>

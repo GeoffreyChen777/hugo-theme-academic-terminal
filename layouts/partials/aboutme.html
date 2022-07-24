@@ -1,0 +1,45 @@
+<div class="flex md:flex-row flex-col my-4">
+  <div id="date-aboutme" class="min-w-[161px] invisible md:visible"></div>
+  <div id="info-aboutme" class="flex flex-col grow">
+    <div class="font-bold underline decoration-double mb-2">About Me</div>
+    <div class="flex justify-between">
+      <div class="flex flex-col my-auto space-y-2 md:space-y-1">
+        <div class="flex flex-col md:flex-row">
+          {{ with .Site.Params.About.Name }}
+          <div class="min-w-[150px]">Name:</div>
+          <div>{{ . }}</div>
+          {{ end }}
+        </div>
+        <div class="flex flex-col md:flex-row">
+          {{ with .Site.Params.About.Institute }}
+          <div class="min-w-[150px]">Institute:</div>
+          <div>{{ . }}</div>
+          {{ end }}
+        </div>
+        <div class="flex flex-col md:flex-row">
+          {{ with .Site.Params.About.Position }}
+          <div class="min-w-[150px]">Position:</div>
+          <div>{{ . }}</div>
+          {{ end }}
+        </div>
+        <div class="flex flex-col md:flex-row">
+          {{ with .Site.Params.About.Email }}
+          <div class="min-w-[150px]">Email:</div>
+          <div>{{ . }}</div>
+          {{ end }}
+        </div>
+        <div class="flex flex-col md:flex-row">
+          {{ with .Site.Params.About.Interests }}
+          <div class="min-w-[150px]">Research Interests:</div>
+          <div>{{ . }}</div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+    <div class="flex space-x-3 mt-5">
+      {{ range .Site.Params.About.Link }}
+      <a class="underline cursor-pointer" href="{{ .link }}">{{ .name }} </a>{{
+      end }}
+    </div>
+  </div>
+</div>

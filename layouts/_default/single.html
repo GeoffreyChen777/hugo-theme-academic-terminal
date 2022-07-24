@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="flex md:flex-row flex-col my-4">
+  <div id="date-page" class="min-w-[161px] invisible md:visible"></div>
+  <div class="flex flex-col grow">
+    <div class="font-bold underline mb-2">{{ .Title }}</div>
+    <div class="italic mb-2">{{ .Params.authors }}</div>
+    <div class="italic mb-2">{{ .Params.description }}</div>
+    <div>{{ .Content }}</div>
+  </div>
+</div>
+
+<script>
+  let timestamp_page = "[" + new Date().toLocaleString() + "]&nbsp;";
+  const pageDateDiv = document.createElement("span");
+  pageDateDiv.innerHTML = timestamp_page;
+  $("#date-page")[0].prepend(pageDateDiv);
+</script>
+
+{{ end }}

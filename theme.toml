@@ -1,0 +1,13 @@
+name = "hugo-theme-academic-terminal"
+license = "MIT"
+licenselink = "https://github.com/mrmierzejewski/hugo-theme-console/blob/master/LICENSE"
+description = "A minimal, responsive and light theme for Hugo inspired by Linux console."
+homepage = "https://github.com/mrmierzejewski/hugo-theme-console"
+tags = ["blog", "academic", "portfolio", "console", "terminal", "clean", "personal", "minimal", "monotone", "simple", "technical", "responsive", "mobile", "minimalist"]
+features = ["responsive", "google analytics"]
+min_version = "0.81.0"
+
+[author]
+    name = "Geoffrey Chen"
+    homepage = "https://geoch.top"
+    github = "https://github.com/hugo-theme-academic-terminal"

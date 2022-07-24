@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Inconsolata';
+    src: url('../font/Inconsolata-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    src: url('../font/Inconsolata-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    font-family: Inconsolata, Courier New, monospace, serif;
+}
