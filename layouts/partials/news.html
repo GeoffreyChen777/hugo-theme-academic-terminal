@@ -7,7 +7,7 @@
                 {{ range first 3 (sort .Data.Pages "Date" "desc" (where .Pages ".Params.private" "!=" true))}}
                     <div class="md:flex md:space-x-2">
                         <span>&gt;</span>
-                        <span>{{ .PublishDate | time.Format "2006-01-02" }}</span>
+                        <span class="min-w-[70px]">{{ .PublishDate | time.Format "2006-01-02" }}</span>
                         <span>-</span>
                         <di><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></h1>
                     </div>    
