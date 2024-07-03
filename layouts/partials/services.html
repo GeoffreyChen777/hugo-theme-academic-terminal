@@ -1,0 +1,22 @@
+<div class="flex my-4 md:flex-row flex-col">
+  <div id="date-services" class="min-w-[161px] invisible md:visible"></div>
+  <div id="info-services" class="flex flex-col grow">
+    <div class="font-bold underline decoration-double mb-2">
+      Services
+    </div>
+    <div class="flex flex-col space-y-2">
+      {{ with .Site.GetPage "/services" }} {{ range (sort .Data.Pages "Date"
+      "desc" (where .Pages ".Params.private" "!=" true))}}
+      <div class="flex space-x-2">
+        <span>#</span>
+        <div class="flex flex-col">
+          <a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
+          <span class="text-gray-700 dark:text-neutral-400"
+            >{{ .Params.description }}</span
+          >
+        </div>
+      </div>
+      {{ end }} {{ end }}
+    </div>
+  </div>
+</div>

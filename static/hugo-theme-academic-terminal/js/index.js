@@ -34,6 +34,9 @@ $(document).ready(function () {
   if (typeof $("#info-awards").html() !== "undefined") {
     localStorage.setItem("infoawards", `${$("#info-awards").html()}`);
   }
+  if (typeof $("#info-services").html() !== "undefined") {
+    localStorage.setItem("infoservices", `${$("#info-services").html()}`);
+  }
 });
 
 function suggest() {
@@ -83,7 +86,9 @@ function runCommand() {
       "<br />" +
       "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; awards: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print my awards." +
       "<br />" +
-      "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; news: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print my news.";
+      "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; news: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print my news."
+      "<br />" +
+      "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; services: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print my services.";
     $("#command-outputs")[0].prepend(output);
   } else if (command === "copy-email") {
     output = document.createElement("span");
@@ -161,6 +166,18 @@ function runCommand() {
     newsInfo.classList.add("grow");
     output.appendChild(newsInfo);
     $("#command-outputs")[0].prepend(output);
+  } else if (command === "services") {
+    output = document.createElement("div");
+    output.classList.add("flex");
+    const servicesDate = document.createElement("div");
+    servicesDate.innerHTML = timestamp;
+    servicesDate.classList.add("min-w-[161px]");
+    output.appendChild(servicesDate);
+    const servicesInfo = document.createElement("div");
+    servicesInfo.innerHTML = localStorage.infoservices;
+    servicesInfo.classList.add("grow");
+    output.appendChild(servicesInfo);
+    $("#command-outputs")[0].prepend(output);
   } else {
     output = document.createElement("span");
     output.innerHTML = timestamp + "Command not found.";
@@ -229,4 +246,8 @@ if ($("#date-awards")[0]) {
   dateDiv = document.createElement("span");
   dateDiv.innerHTML = timestamp;
   $("#date-aboutme")[0].prepend(dateDiv);
+
+  dateDiv = document.createElement("span");
+  dateDiv.innerHTML = timestamp;
+  $("#date-services")[0].prepend(dateDiv);
 }
